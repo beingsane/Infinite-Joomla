@@ -23,13 +23,26 @@
 	</media>
 
 	<params>
-		<param name="mode"
-		       type="list"
-		       default="k2"
-		       label="Plugin Mode"
-		       description="">
-			<option value="k2">K2</option>
-		</param>
+		<param name="container"
+		       type="text"
+		       default="#k2Container"
+		       label="Containing Element"
+		       description="The element that surrounds the items you will be loading more of."/>
+		<param name="navSelector"
+		       type="text"
+		       default=".k2Pagination"
+		       label="Nav Selector"
+		       description="Selector for the paged navigation (it will be hidden)"/>
+		<param name="nextSelector"
+		       type="text"
+		       default=".pagination a[title=Next]"
+		       label="Next Selector"
+		       description="Selector for the NEXT link"/>
+		<param name="itemSelector"
+		       type="text"
+		       default=".itemContainer"
+		       label="Item Container"
+		       description="Selector for all items you'll retrieve."/>
 	</params>
 
 </install>

@@ -16,47 +16,31 @@ class plgSystemInfinitejoomla extends JPlugin {
 
 	function onAfterRoute() {
 
-		$app       = JFactory::getApplication();
-		$component = JRequest::getCmd('option');
-		$doc       = JFactory::getDocument();
-		$mode      = $this->params->get('mode');
-		$view      = JRequest::getCmd('view', 0);
+		$app          = JFactory::getApplication();
+		$doc          = JFactory::getDocument();
+		$container    = htmlspecialchars($this->params->get('container', '#k2Container'));
+		$itemSelector = htmlspecialchars($this->params->get('itemSelector', '.itemContainer'));
+		$navSelector  = htmlspecialchars($this->params->get('navSelector', '.k2Pagination'));
+		$nextSelector = htmlspecialchars($this->params->get('nextSelector', '.pagination a[title=Next]'));
 
 		if ($app->isAdmin()) {
 			return;
 		}
 
-		switch ($mode) {
-			case "k2":
-				if ($component == "com_k2" && $view == "itemlist") {
-					$js = <<<JS
-				(function ($) {
-					"use strict";
-					$().ready(function () {
-						// infinitescroll() is called on the element that surrounds
-						// the items you will be loading more of
-						$('#k2Container').infinitescroll({
-
-							navSelector : ".k2Pagination",
-							// selector for the paged navigation (it will be hidden)
-							nextSelector: ".pagination a[title=Next]",
-							// selector for the NEXT link (to page 2)
-							itemSelector: ".itemContainer"
-							// selector for all items you'll retrieve
-						});
-					});
-				}(jQuery));
+		$js = <<<JS
+(function ($) {
+	"use strict";
+	$().ready(function () {
+		$('{$container}').infinitescroll({
+			navSelector : "{$navSelector}",
+			nextSelector: "{$nextSelector}",
+			itemSelector: "{$itemSelector}"
+		});
+	});
+}(jQuery));
 JS;
-				}
-				break;
 
-			default:
-				$js = NULL;
-		}
-
-		if (!is_null($js)) {
-			$doc->addScript(JURI::base(TRUE) . '/media/js/jquery.infinitescroll.min.js');
-			$doc->addScriptDeclaration($js);
-		}
+		$doc->addScript(JURI::base(TRUE) . '/media/js/jquery.infinitescroll.min.js');
+		$doc->addScriptDeclaration($js);
 	}
 }
