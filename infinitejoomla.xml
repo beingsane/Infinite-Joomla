@@ -6,12 +6,12 @@
 	<author>Matt Thomas</author>
 	<authorEmail>matt@betweenbrain.com</authorEmail>
 	<authorUrl>http://www.betweenbrain.com</authorUrl>
-	<copyright>Copyright (C) 2013 betweenbrain llc. All rights reserved.</copyright>
-	<creationDate>May 20, 2013</creationDate>
+	<copyright>Copyright (C) 2013, 2015 betweenbrain llc. All rights reserved.</copyright>
+	<creationDate>April 1, 2015</creationDate>
 	<description>Infinite Joomla</description>
 	<license>GNU General Public License version 2 or later</license>
 	<name>System - Infinite Joomla</name>
-	<version>0.1</version>
+	<version>0.2</version>
 
 	<files>
 		<filename plugin="infinitejoomla">infinitejoomla.php</filename>
