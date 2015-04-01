@@ -14,7 +14,7 @@ jimport('joomla.plugin.plugin');
 
 class plgSystemInfinitejoomla extends JPlugin {
 
-	function onAfterRoute() {
+	function onBeforeRender() {
 
 		$app          = JFactory::getApplication();
 		$doc          = JFactory::getDocument();
