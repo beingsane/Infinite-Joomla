@@ -12,9 +12,11 @@
 // Import library dependencies
 jimport('joomla.plugin.plugin');
 
-class plgSystemInfinitejoomla extends JPlugin {
+class plgSystemInfinitejoomla extends JPlugin
+{
 
-	function onBeforeRender() {
+	function onBeforeRender()
+	{
 
 		$app          = JFactory::getApplication();
 		$doc          = JFactory::getDocument();
@@ -23,7 +25,8 @@ class plgSystemInfinitejoomla extends JPlugin {
 		$navSelector  = htmlspecialchars($this->params->get('navSelector', '.k2Pagination'));
 		$nextSelector = htmlspecialchars($this->params->get('nextSelector', '.pagination a[title=Next]'));
 
-		if ($app->isAdmin()) {
+		if ($app->isAdmin())
+		{
 			return;
 		}
 
@@ -40,7 +43,7 @@ class plgSystemInfinitejoomla extends JPlugin {
 }(jQuery));
 JS;
 
-		$doc->addScript(JURI::base(TRUE) . '/media/js/jquery.infinitescroll.min.js');
+		$doc->addScript(JURI::base(true) . '/media/js/jquery.infinitescroll.min.js');
 		$doc->addScriptDeclaration($js);
 	}
 }
