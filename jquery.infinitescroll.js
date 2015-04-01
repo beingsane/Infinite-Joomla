@@ -825,3 +825,52 @@
     };
 
 }));
+
+/*
+ * From https://github.com/cutandpastey/joomla-infinite-scroll
+ * Copyright 2012 Pastey of WhiteLabelExtensions GNU General Public License
+ */
+(function($){
+    var pageCount = 0;
+    $(document).ready(function(){
+        $(InfiniteConfig.container).infinitescroll({
+            loading: {
+                finished: undefined,
+                finishedMsg: InfiniteConfig.finishedMsg,
+                msg: null,
+                msgText: InfiniteConfig.msgText,
+                selector: null,
+                speed: 'slow',
+                start: undefined
+            },
+            debug: false,
+            behavior: undefined,
+            binder: $(window), // used to cache the selector for the element that will be scrolling
+            nextSelector: InfiniteConfig.nextSelector,
+            navSelector: InfiniteConfig.navSelector,
+            contentSelector:InfiniteConfig.contentSelector, // rename to pageFragment
+            extraScrollPx: 150,
+            itemSelector: InfiniteConfig.itemSelector,
+            animate: false,
+            extractLink: true,
+            pathParse: undefined,
+            path: function(){
+                pageCount += 1;
+                var path = $(InfiniteConfig.nextSelector).attr('href')
+                _url =  path.split('=')
+                url = _url[0];
+                numItems = parseInt(_url[1]);
+                nextLimit = numItems * (pageCount);
+                return [ InfiniteConfig.baseURL + url + '=' + nextLimit ];
+            },
+            dataType: 'html',
+            appendCallback: true,
+            bufferPx: 40,
+            errorCallback: function () { },
+            infid: 0, //Instance ID
+            pixelsFromNavToBottom: undefined,
+            prefill: false, // When the document is smaller than the window, load data until the document is larger or links are exhausted
+            maxPage:undefined // to manually control maximum page (when maxPage is undefined, maximum page limitation is not work)
+        });
+    });
+})(jQuery)

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.2" type="plugin" group="system" method="upgrade">
+<extension version="3.2"
+           type="plugin"
+           group="system"
+           method="upgrade">
 	<author>Matt Thomas</author>
 	<authorEmail>matt@betweenbrain.com</authorEmail>
 	<authorUrl>http://www.betweenbrain.com</authorUrl>
@@ -21,26 +24,54 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="container"
-				       type="text"
-				       default=".pagination-list"
-				       label="Containing Element"
-				       description="The element that surrounds the items you will be loading more of."/>
+				<field
+						name="container"
+						required="required"
+						type="text"
+						default=".blog"
+						label="Containing Element"
+						description="The element that surrounds the items you will be loading more of."/>
+
 				<field name="navSelector"
 				       type="text"
-				       default=".pagenav"
+				       default="div.pagination"
 				       label="Nav Selector"
 				       description="Selector for the paged navigation (it will be hidden)"/>
+
 				<field name="nextSelector"
 				       type="text"
-				       default=".pagination-list a[title=Next]"
+				       default="[title=Next]"
 				       label="Next Selector"
 				       description="Selector for the NEXT link"/>
+
 				<field name="itemSelector"
 				       type="text"
-				       default=".item"
+				       default=".items-row .item"
 				       label="Item Container"
 				       description="Selector for all items you'll retrieve."/>
+
+				<field
+						name="contentSelector"
+						required="required"
+						type="text"
+						default=".blog"
+						label="Content Selector String"
+						description=""/>
+
+				<field
+					name="finishedMsg"
+				    type="text"
+				    default="Congratulations, you have reached the end of the internet."
+				    label="End Message"
+				    description="" />
+
+				<field
+					name="msgText"
+				    type="text"
+				    default="Loading the next set of posts..."
+				    label="End Message"
+				    description="" />
+
 			</fieldset>
 		</fields>
 	</config>

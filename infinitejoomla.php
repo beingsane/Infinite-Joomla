@@ -17,33 +17,29 @@ class plgSystemInfinitejoomla extends JPlugin
 
 	function onBeforeRender()
 	{
-
-		$app          = JFactory::getApplication();
-		$doc          = JFactory::getDocument();
-		$container    = htmlspecialchars($this->params->get('container', '#k2Container'));
-		$itemSelector = htmlspecialchars($this->params->get('itemSelector', '.itemContainer'));
-		$navSelector  = htmlspecialchars($this->params->get('navSelector', '.k2Pagination'));
-		$nextSelector = htmlspecialchars($this->params->get('nextSelector', '.pagination a[title=Next]'));
+		$app = JFactory::getApplication();
+		$doc = JFactory::getDocument();
 
 		if ($app->isAdmin())
 		{
 			return;
 		}
 
-		$js = <<<JS
-(function ($) {
-	"use strict";
-	$().ready(function () {
-		$('{$container}').infinitescroll({
-			navSelector : "{$navSelector}",
-			nextSelector: "{$nextSelector}",
-			itemSelector: "{$itemSelector}"
-		});
-	});
-}(jQuery));
-JS;
-
 		$doc->addScript(JURI::base(true) . '/media/js/jquery.infinitescroll.min.js');
+
+		// See https://github.com/infinite-scroll/infinite-scroll#options for more options that can be added here.
+		$js = "
+      window.InfiniteConfig = {
+          container   : '" . $this->params->get('container') . "',
+          navSelector : '" . $this->params->get('navSelector') . "',
+          nextSelector: '" . $this->params->get('nextSelector') . "',
+          itemSelector: '" . $this->params->get('itemSelector') . "',
+          contentSelector: '" . $this->params->get('contentSelector') . "',
+          baseURL     : '',
+          finishedMsg : '" . $this->params->get('finishedMsg') . "',
+          msgText     : '" . $this->params->get('msgText') . "'
+      }
+  ";
 		$doc->addScriptDeclaration($js);
 	}
 }
