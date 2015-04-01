@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<install version="1.5"
-         type="plugin"
-         group="system"
-         method="upgrade">
-	<name>System - Infinite Joomla</name>
-	<version>0.1</version>
-	<creationDate>May 20, 2013</creationDate>
+<extension version="3.2" type="plugin" group="system" method="upgrade">
 	<author>Matt Thomas</author>
 	<authorEmail>matt@betweenbrain.com</authorEmail>
 	<authorUrl>http://www.betweenbrain.com</authorUrl>
-	<license>GNU General Public License version 2 or later</license>
 	<copyright>Copyright (C) 2013 betweenbrain llc. All rights reserved.</copyright>
-	<description>Joomla Ajax Session Plugin</description>
+	<creationDate>May 20, 2013</creationDate>
+	<description>Infinite Joomla</description>
+	<license>GNU General Public License version 2 or later</license>
+	<name>System - Infinite Joomla</name>
+	<version>0.1</version>
 
 	<files>
 		<filename plugin="infinitejoomla">infinitejoomla.php</filename>
@@ -19,30 +16,33 @@
 
 	<media destination="js">
 		<file>jquery.infinitescroll.min.js</file>
-		<file>index.html</file>
 	</media>
 
-	<params>
-		<param name="container"
-		       type="text"
-		       default="#k2Container"
-		       label="Containing Element"
-		       description="The element that surrounds the items you will be loading more of."/>
-		<param name="navSelector"
-		       type="text"
-		       default=".k2Pagination"
-		       label="Nav Selector"
-		       description="Selector for the paged navigation (it will be hidden)"/>
-		<param name="nextSelector"
-		       type="text"
-		       default=".pagination a[title=Next]"
-		       label="Next Selector"
-		       description="Selector for the NEXT link"/>
-		<param name="itemSelector"
-		       type="text"
-		       default=".itemContainer"
-		       label="Item Container"
-		       description="Selector for all items you'll retrieve."/>
-	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="container"
+				       type="text"
+				       default=".pagination-list"
+				       label="Containing Element"
+				       description="The element that surrounds the items you will be loading more of."/>
+				<field name="navSelector"
+				       type="text"
+				       default=".pagenav"
+				       label="Nav Selector"
+				       description="Selector for the paged navigation (it will be hidden)"/>
+				<field name="nextSelector"
+				       type="text"
+				       default=".pagination-list a[title=Next]"
+				       label="Next Selector"
+				       description="Selector for the NEXT link"/>
+				<field name="itemSelector"
+				       type="text"
+				       default=".item"
+				       label="Item Container"
+				       description="Selector for all items you'll retrieve."/>
+			</fieldset>
+		</fields>
+	</config>
 
-</install>
+</extension>
