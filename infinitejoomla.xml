@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.2"
-           type="plugin"
-           group="system"
-           method="upgrade">
+<extension
+		version="3.2"
+		type="plugin"
+		group="system"
+		method="upgrade">
 	<author>Matt Thomas</author>
 	<authorEmail>matt@betweenbrain.com</authorEmail>
 	<authorUrl>http://www.betweenbrain.com</authorUrl>
@@ -32,23 +33,26 @@
 						label="Containing Element"
 						description="The element that surrounds the items you will be loading more of."/>
 
-				<field name="navSelector"
-				       type="text"
-				       default="div.pagination"
-				       label="Nav Selector"
-				       description="Selector for the paged navigation (it will be hidden)"/>
+				<field
+						name="navSelector"
+						type="text"
+						default="div.pagination"
+						label="Nav Selector"
+						description="Selector for the paged navigation (it will be hidden)"/>
 
-				<field name="nextSelector"
-				       type="text"
-				       default="[title=Next]"
-				       label="Next Selector"
-				       description="Selector for the NEXT link"/>
+				<field
+						name="nextSelector"
+						type="text"
+						default="[title=Next]"
+						label="Next Selector"
+						description="Selector for the NEXT link"/>
 
-				<field name="itemSelector"
-				       type="text"
-				       default=".items-row .item"
-				       label="Item Container"
-				       description="Selector for all items you'll retrieve."/>
+				<field
+						name="itemSelector"
+						type="text"
+						default=".items-row .item"
+						label="Item Container"
+						description="Selector for all items you'll retrieve."/>
 
 				<field
 						name="contentSelector"
@@ -59,18 +63,18 @@
 						description=""/>
 
 				<field
-					name="finishedMsg"
-				    type="text"
-				    default="Congratulations, you have reached the end of the internet."
-				    label="End Message"
-				    description="" />
+						name="finishedMsg"
+						type="text"
+						default="Congratulations, you have reached the end of the internet."
+						label="End Message"
+						description=""/>
 
 				<field
-					name="msgText"
-				    type="text"
-				    default="Loading the next set of posts..."
-				    label="End Message"
-				    description="" />
+						name="msgText"
+						type="text"
+						default="Loading the next set of posts..."
+						label="End Message"
+						description=""/>
 
 			</fieldset>
 		</fields>
