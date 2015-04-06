@@ -77,6 +77,16 @@
 						description=""/>
 
 			</fieldset>
+			<fieldset name="advanced">
+				<field name="debug"
+				       type="list"
+				       default=""
+				       label="Debug"
+				       description="">
+					<option value="false">JNO</option>
+					<option value="true">JYES</option>
+				</field>
+			</fieldset>
 		</fields>
 	</config>
 

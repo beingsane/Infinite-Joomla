@@ -37,7 +37,8 @@ class plgSystemInfinitejoomla extends JPlugin
           contentSelector: '" . $this->params->get('contentSelector') . "',
           baseURL     : '',
           finishedMsg : '" . $this->params->get('finishedMsg') . "',
-          msgText     : '" . $this->params->get('msgText') . "'
+          msgText     : '" . $this->params->get('msgText') . "',
+          debug       : " . $this->params->get('debug') . "
       }
   ";
 		$doc->addScriptDeclaration($js);

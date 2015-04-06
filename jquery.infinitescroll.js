@@ -843,7 +843,7 @@
                 speed: 'slow',
                 start: undefined
             },
-            debug: false,
+            debug: InfiniteConfig.debug,
             behavior: undefined,
             binder: $(window), // used to cache the selector for the element that will be scrolling
             nextSelector: InfiniteConfig.nextSelector,
